@@ -278,7 +278,19 @@ Shells are just programs, so you can open a different one just by entering it as
 
 ## Test Yourself
 
-1. Bruker title information for each experiment is stored in a file `title`, within the `pdata` and `1` folders. How would you view the contents of this file?
+What command lists files in long format, including permissions and sizes?
+<details markdown="block">
+  <summary>
+    Solution
+  </summary>
+```sh
+ls -l
+```
+</details>
+
+---
+
+Bruker title information for each experiment is stored in a file `title`, within the `pdata` and `1` folders. How would you view the contents of this file?
 
 <details markdown="block">
   <summary>
@@ -290,17 +302,9 @@ cat pdata/1/title
 ```
 </details>
 
-2. What command lists files in long format, including permissions and sizes?
-<details markdown="block">
-  <summary>
-    Solution
-  </summary>
-```sh
-ls -l
-```
-</details>
+---
 
-3. How would you compress the contents of an experiment, and transfer it to your home directory in nmrbox?
+How would you compress the contents of an experiment, and transfer it to your home directory in nmrbox?
 <details markdown="block">
   <summary>
     Solution
@@ -312,7 +316,9 @@ scp data.tgz user@helium.nmrbox.org:~
 ```
 </details>
 
-4. The `acqus` file within an experiment lists all the parameters used for its acquisition. How would you filter this file to find the `NS` parameter (the number of scans)?
+---
+
+The `acqus` file within an experiment lists all the parameters used for its acquisition. How would you filter this file to find the `NS` parameter (the number of scans)?
 <details markdown="block">
   <summary>
     Solution
