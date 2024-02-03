@@ -84,34 +84,33 @@ Planned outline:
   * Calibration of shaped pulses
  * Exploring effect of d1 on SNR and sensitivity
 12. 13C HMQC (hmqcgpphpr.cw)
-*	Optimising spectral width and offset
-*	Effect of 1JCC scalar couplings
-*	Identifying methyls, aliphatics, alpha carbons and aromatics
-*	Identify different types of methyls and compare 1JCC coupling in ILV methyls with methionines
+ *	Optimising spectral width and offset
+ *	Effect of 1JCC scalar couplings
+ *	Identifying methyls, aliphatics, alpha carbons and aromatics
+ *	Identify different types of methyls and compare 1JCC coupling in ILV methyls with methionines
 13. 13C CT HSQC (hsqcctetgpsp.cw)
-*	Appropriate choice of constant time delay, dependence of peak signs on coupling multiplicity
-*	Selection of appropriate td
-*	Comparison of sensitivity and resolution with 13C HMQC
+ * Appropriate choice of constant time delay, dependence of peak signs on coupling multiplicity
+ * Selection of appropriate td
+ * Comparison of sensitivity and resolution with 13C HMQC
 14. 1H diffusion experiments
-*	Understanding the principle of the experiment (Stejskal-Tanner equation)
+ * Understanding the principle of the experiment (Stejskal-Tanner equation)
  * Setting up the experiment (stebpgp1s19.cw)
-*	Choice of Δ (d20), δ (2 x p30), understanding gradient power limits
-*	Setting up gradient ramp (dosy macro)
-*	Processing (xf2)
- * Comparison of different experiments
- * Convection
+ * Choice of Δ (d20), δ (2 x p30), understanding gradient power limits
+ * Setting up gradient ramp (dosy macro)
+ * Processing (xf2)
  * Determination of the diffusion coefficient and hydrodynamic radius (NMRAnalysis.jl)
+ * Comparison of different experiments (water suppression, LED)
+ * Convection
 15.	15N diffusion
  * Setting up the experiment (stebpgp1s19xn.4.cw)
-*	Compare solvent suppression and quality of baseline with 1H methods
+ * Compare solvent suppression and quality of baseline with 1H methods
  * Accuracy for exchangable protons
 16.	TRACT
- *	Understanding the principle of the measurement
-* Setting up the experiment (tract.cw)
-*	Calibrating flip-down and flip-back pulses
-*	Setting an appropriate vdlist and running TROSY and anti-TROSY measurements
-*	Processing and analysis to determine the effective rotational correlation time (NMRAnalysis.jl)
-
+ * Understanding the principle of the measurement
+ * Setting up the experiment (tract.cw)
+ * Calibrating flip-down and flip-back pulses
+ * Setting an appropriate vdlist and running TROSY and anti-TROSY measurements
+ * Processing and analysis to determine the effective rotational correlation time (NMRAnalysis.jl)
 
 {: .note }
 > This is a note.
