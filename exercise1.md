@@ -18,6 +18,8 @@ Working with UNIX systems can be a bit intimidating, because they're usually acc
 
 Unix uses a hierarchical file system structure, much like an upside-down tree, with a root directory `/` at the base of the file system that contains subfolders like `/home` and `/usr`. Directories and files are separated using a forward slash `/`.
 
+![Illlustration of a typical UNIX filesystem][1]
+
 The home directory contains directories for each user, in which their documents and data are stored (on a mac, the home directory is called `Users`).  Your home folder has a name like `/home/yourname`. Your home directory is also represented by the shortcut character `~`.
 
 When you're working in the terminal, it's important to be aware of what directory you're currently working in - this is called the *working directory* and is often displayed as part of the terminal prompt.
@@ -279,4 +281,4 @@ Shells are just programs, so you can open a different one just by entering it as
 
 [1]: https://homepages.uc.edu/~thomam/Intro_Unix_Text/Images/unix_file_system.png
 [2]: https://i.stack.imgur.com/LBRdx.png
-[3]: https://sites.google.com/site/jocvlib/_/rsrc/1225045719566/ethiopia/computer/linux/standard-linux-textbook/ch03/fig03-02.jpg
+[3]: https://docs.ycrc.yale.edu/PIL/fig/redirects-and-pipes.png
