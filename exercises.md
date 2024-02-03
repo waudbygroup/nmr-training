@@ -7,11 +7,17 @@ has_children: true
 
 # Exercises
 
-{: .info }
-> This is information.
+{: .note }
+> This is a note.
 
+{: .important }
+> This is important.
+ 
 {: .warning }
 > This is a warning.
 
-{: .note }
-> This is a note.
+{: .highlight }
+> This is a highlight.
+
+{: .new }
+> This is new.
