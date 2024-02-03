@@ -7,4 +7,11 @@ has_children: true
 
 # Exercises
 
-To make it as easy as possible to write documentation in plain Markdown, most UI components are styled using default Markdown elements with few additional CSS classes needed.
+{: .info }
+> This is information.
+
+{: .warning }
+> This is a warning.
+
+{: .note }
+> This is a note.
