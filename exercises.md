@@ -55,6 +55,7 @@ Planned outline:
  * Exploring receiver gain
  * Exploring recycle time (d1, using the spooler)
  * Exploring acquisition time, td and spectrum width
+ * Exploring mis-setting of lock phase, lock saturation
 7. 1D processing
  * Explore window functions - compare linewidths of small molecules vs protein
  * Water suppression (processing)
