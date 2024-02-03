@@ -109,7 +109,7 @@ Linux comes with a variety of editors that can be used to edit text files. Some 
 * `tar -czvf datafile.tgz datafile` - compress to datafile.tgz
 * `tar -xzvf datafile.tgz` - extract datafile from datafile.tgz
 
-## Escape keys:
+## Escape keys
 
 * `Control+C` is a pretty universal 'cancel' instruction to stop a script that's running
 * `Control+D` means 'end of input' and is often used to quit programs like python or Julia.
