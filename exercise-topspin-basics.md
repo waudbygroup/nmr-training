@@ -1,4 +1,21 @@
-# Topspin NMR Software Basics
+---
+title: Topspin Basics
+layout: default
+nav_order: 2
+parent: Exercises
+---
+
+# Topspin Basics
+{: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+{: .note }
+> This is a working draft - do not use!
 
 ## Adding Directories to the Data Browser
 
