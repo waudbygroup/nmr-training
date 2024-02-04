@@ -62,3 +62,8 @@ nav_external_links:
     url: https://waudbylab.org
   # - title: NMR Training on GitHub
   #   url: https://github.com/waudbygroup/nmr-training
+
+mermaid:
+  # Version of mermaid library
+  # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
+  version: "10.8.0"
