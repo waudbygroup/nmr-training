@@ -14,10 +14,6 @@ parent: Exercises
 1. TOC
 {:toc}
 
-{: .note }
-> This is a working draft - do not use!
-
-
 ## Data Directory Structure
 
 Topspin uses a standardized directory structure to store all your data:
