@@ -19,45 +19,62 @@ parent: Exercises
 
 ## Adding Directories to the Data Browser
 
-To add a directory to the Topspin data browser:
+TODO
 
-1. Press the `ESC` key to open the command line
-2. Type `altd` and press `Enter` 
-3. Navigate to the directory you want to add and press `Enter`
-
-To sync the newly added directory:
-
-1. Press the `ESC` key to open the command line 
-2. Type `altds` and press `Enter`
-
-This will synchronize the directory listing with the files available on disk.
 
 ## Internal Command Line
 
-The internal Topspin command line can be accessed by pressing the `ESC` key. This allows you to execute Topspin commands and automate workflows.
+The internal Topspin command line can be accessed by pressing the `ESC` key. This allows you to execute Topspin commands.
 
 Some useful commands:
 
-- `re` - Read experiment
-- `altd` - Add directory
-- `altds` - Sync directory
-- `edp` - Edit processing parameters 
-- `eda` - Edit acquisition parameters
+* `re XX` - Open (read) experiment number XX
+* `rep XX` - Open (read) processed data number XX
+* `re XX YY` - Open (read) processed data YY from experiment XX
+* `edp` - Edit processing parameters 
+* `eda` - Edit acquisition parameters
+* `ase` - Edit pulse program parameters (additional acquisition parameters)
+* `zg` - Begin acquisition (any existing data in current experiment will be deleted)
+* `stop` - Interrupt current acquisition IMMMEDIATELY
+* `a` - Open acquisition window
 
 ## Acquired vs Processed Data 
 
-- **Acquired data** - The direct output of the spectrometer, usually saved as `.fid` or `.ser` files
-- **Processed data** - Data that has been Fourier transformed and phased. Saved as `.1r` or `.2rr` files generally.
+It's important to understand the distinction between raw acquired data, and processed data (pdata):
+
+- **Acquired data** - The direct output of the spectrometer, saved as `fid` or `ser` files. These files should not be modified following acquisition, and cannot be recovered if deleted.
+- **Processed data (pdata)** - Spectra that have likely been Fourier transformed and phased. Saved as `1r` or `2rr` files. Processed data can always be reconstructed from the original acquired data, and is frequently overwritten while processing.
 
 ## Directory Structure
 
 Topspin uses a standardized directory structure:
 
-- **Main folder** - Contains all the experiments, generally named by date 
-- **Numbered experiments** - Each experiment folder is numbered (e.g. `2021-08-05-1`, `2021-08-05-2`)
-- **Processed data folder (pdata)** - Contains numbered directories with the processed datasets 
-- **Acqus files** - Contain the acquisition parameters 
-- **fid/ser files** - Raw free induction decay data, before Fourier transform
+```mermaid
+flowchart TD
+    A[experiment directory] -->|numbered experiment| B[1]
+    A --> C[2]
+    B --> |raw 1D data| E(fid)
+    B --> |acquisition parameters| F(acqus)
+    B --> G[pdata]
+    G --> |main processed data| H[1]
+    H --> |title information| I(title)
+    H --> |1D processed data| L(1r, 1i)
+    G --> |other processing| J[101]
+    C --> |raw 2D/3D data| K(ser)
+    C --> M[pdata]
+    M --> N[1]
+    N --> |2D processed data| O(2rr, 2ri, 2ir, 2ii)
+```
+
+- **Experiment directory** - Contains a collection of numbered experiments 
+- **Numbered experiments** - Individual measurements are numbered (doesn't have to be sequential)
+- **`fid` file** - Raw free induction decay data, before Fourier transform, for a 1D experiment
+- **`ser` file** - Raw free induction decay data, before Fourier transform, for 2D/3D experiments
+- **`acqus` file** - Contains acquisition parameters, including pulse lengths, number of scans, receiver gain, etc.
+- **Processed data (pdata)** - Contains numbered directories storing the processed data. Always contains pdata number `1`, which stores the title file (contents of the title tab from Topspin)
+- **`1r/1i` files** - Processed 1D data (real and imaginary components)
+- **`2rr,2ri,2ir,2ii` files** - Processed 2D data (real and imaginary components)
+
 
 ## Auxiliary Directories 
 
