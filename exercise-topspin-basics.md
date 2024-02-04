@@ -115,7 +115,9 @@ If a system has an enabled sample changer:
 ### Running experiments
 
 - `zg` - Begin acquisition
-{: .warning}
+
+{: .warning }
 > Any existing data in current experiment will be immediatelly deleted when running `zg`. Always check carefully which experiment is currently open before starting an experiment.
+
 - `stop` - Interrupt current acquisition IMMMEDIATELY
 - `a` - Open acquisition window
