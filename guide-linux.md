@@ -2,7 +2,7 @@
 title: Linux Tutorial
 layout: default
 nav_order: 1
-parent: Exercises
+parent: Guides
 ---
 
 # Linux Tutorial for Beginners

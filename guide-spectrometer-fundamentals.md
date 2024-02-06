@@ -2,7 +2,7 @@
 title: Spectrometer Fundamentals
 layout: default
 nav_order: 3
-parent: Exercises
+parent: Guides
 ---
 
 # Spectrometer Fundamentals

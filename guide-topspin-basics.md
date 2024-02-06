@@ -2,7 +2,7 @@
 title: Topspin Basics
 layout: default
 nav_order: 2
-parent: Exercises
+parent: Guides
 ---
 
 # Topspin Basics

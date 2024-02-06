@@ -1,39 +1,20 @@
 ---
 layout: default
 title: Exercises
-nav_order: 2
+nav_order: 3
 has_children: true
 ---
 
 # Exercises
 
 Planned outline:
-1. Linux tutorial
-2. Topspin fundamentals
- * Acquired vs processed data
- * Structure of data directories
- * Auxilliary directories (pulse programs)
- * Copying experiments and data (edc, wrpa, wrp)
- * Good practise for naming experiments
- * Processing and acquisition parameters
-3. Spectrometer fundamentals
- * Channels
- * Offsets
- * Pulses
- * Power levels
- * Delays
- * Shaped pulses
- * Gradients
- * Scans, dummy scans and receiver gain
- * Prosol
- * Pulse programs
-4. Inserting a sample
+
+4. Inserting a sample and 1H calibration
  * Temperature control (BCU unit)
  * Injecting and ejecting samples
  * Locking (lock phase, avoiding saturation)
  * Tuning and matching
  * Shimming (tuning transverse shims, shigemi option, autoshim, other options)
-5. 1H pulse calibration
  * Using `zg`
   * Setting up the experiment
   * Short pulse
