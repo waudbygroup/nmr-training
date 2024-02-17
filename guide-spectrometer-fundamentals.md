@@ -99,6 +99,40 @@ You can check and edit pulse lengths in the `ased` acquisition parameter editor,
 
 ## Power levels
 
+The effect of a pulse on spins depends on the duration of the pulse, and the power level at which it is applied. Power levels can be a confusing subject because there are several ways to describe them, both in practise and when discussed in the literature.
+
+There are two ways to specify power levels within Topspin:
+
+* Watts (W) -- this is a direct measure of the power going into the probe from the amplifier
+* Attenuation in decibels (dB) -- this measures the *reduction* in power, relative to the amplifier's maximum. Decibels are a logarithmic unit, and so this is often a more useful way to handle power levels that can vary over orders of magnitude.
+
+Power levels in Watts are stored in the parameters `plW0-63` and attenuations in the parameters `pldB0-63`. Changing the value in one unit will update the other parameter automatically.
+
+{: .warning }
+> High powers (in W) correspond to small, often negative, attenuations when measured in dB. Likewise, large attenuations (in dB) correspond to small power levels (in W). Take care you don't get confused by this -- there are no safety checks and it's possible to cause serious damage to the probe.
+
+The amplifier for each channel has a maximum power level. Short pulses applied at maximum power are referred to as *hard pulses*, and these are the most common pulses that need to be calibrated (discussed elsewhere). By convention, some parameters are commonly used to specify the maximum power level for different channels:
+
+| Symbol | Description |
+|:---|:---|
+|`plW1 / pldB1` | 1H maximum power |
+|`plW2 / pldB2` | 13C maximum power |
+|`plW21 / pldB21` | 15N maximum power |
+
+
+### Power levels: Theory
+
+Away from the spectrometer, for example when reporting a pulse sequence in a paper, or when analysing a sequence theoretically, power levels are normally specified as a *frequency* $$\nu_1$$, in Hz or kHz. This is the frequency that spins will rotate about the applied field (on-resonance) when the pulse is applied.
+
+For example, if a 20 kHz pulse is applied, spins will rotate about the applied field 20,000 times per second. It would therefore take 1/20000 = 0.00005 s = 50 μs to make a complete 360 degree rotation, corresponding to a 90 degree pulse length of 12.5 μs.
+
+More generally, the flip (rotation) angle β depends on the pulse power ν1 and pulse length τp:
+
+$$\beta = \nu_1 \tau_p$$
+
+Within the probe, the pulse power $$\nu_1$$ is proportional to the voltage $$V$$ in the coil.
+
+
 ## Delays
 
 Delays are represented by the parameters `d0` to `d31`. They are stored as **seconds (s)**.
@@ -107,7 +141,7 @@ By convention, some parameters are commonly used for different types of delay:
 
 | Symbol | Description |
 |:---|:---|
-|`d1` | Recycle delay = time between scans |
+|`d1` | Recycle delay = time between scans. Typically 1-2 seconds, shorter for SOFAST/BEST experiments |
 
 
 You can check and edit delays in the `ased` acquisition parameter editor, or by typing their symbol directly from the command line.
