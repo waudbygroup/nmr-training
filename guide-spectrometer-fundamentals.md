@@ -106,7 +106,11 @@ There are two ways to specify power levels within Topspin:
 * Watts (W) -- this is a direct measure of the power going into the probe from the amplifier
 * Attenuation in decibels (dB) -- this measures the *reduction* in power, relative to the amplifier's maximum. Decibels are a logarithmic unit, and so this is often a more useful way to handle power levels that can vary over orders of magnitude.
 
-Power levels in Watts are stored in the parameters `plW0-63` and attenuations in the parameters `pldB0-63`. Changing the value in one unit will update the other parameter automatically.
+Power levels in Watts are stored in the parameters `plW0-63` and attenuations in the parameters `pldB0-63`. Changing the value in one unit will update the other parameter automatically. The relation is:
+
+$$dB = -10 \log_10 P_1 / P_\mathrm{ref}$$
+
+where $$P_\mathrm{ref}$$ is the reference power level.
 
 {: .warning }
 > High powers (in W) correspond to small, often negative, attenuations when measured in dB. Likewise, large attenuations (in dB) correspond to small power levels (in W). Take care you don't get confused by this -- there are no safety checks and it's possible to cause serious damage to the probe.
@@ -115,10 +119,12 @@ The amplifier for each channel has a maximum power level. Short pulses applied a
 
 | Symbol | Description |
 |:---|:---|
-|`plW1 / pldB1` | 1H maximum power |
-|`plW2 / pldB2` | 13C maximum power |
-|`plW21 / pldB21` | 15N maximum power |
+|`plW1` or `pldB1` | 1H maximum power |
+|`plW2` or `pldB2` | 13C maximum power |
+|`plW21` or `pldB21` | 15N maximum power |
 
+{: .warning }
+> The maximum power level is checked before a pulse sequence is run. However, the *average* power deposition throughout the sequence is not. You can still damage the probe by applying high power levels for long periods of time!
 
 ### Power levels: Theory
 
@@ -126,11 +132,21 @@ Away from the spectrometer, for example when reporting a pulse sequence in a pap
 
 For example, if a 20 kHz pulse is applied, spins will rotate about the applied field 20,000 times per second. It would therefore take 1/20000 = 0.00005 s = 50 μs to make a complete 360 degree rotation, corresponding to a 90 degree pulse length of 12.5 μs.
 
-More generally, the flip (rotation) angle β depends on the pulse power ν1 and pulse length τp:
+More generally, the flip (rotation) angle $$\beta$$ depends on the pulse strength $$\nu_1$$ and pulse length $$\tau_p$$:
 
 $$\beta = \nu_1 \tau_p$$
 
-Within the probe, the pulse power $$\nu_1$$ is proportional to the voltage $$V$$ in the coil.
+Within the probe, the pulse strength $$\nu_1$$ is proportional to the voltage $$V$$ in the coil. However, the *power* in the probe (set by `plW1` etc.) depends on the square of the voltage, according to Ohm's law:
+
+$$P = V^2 / R$$
+
+The resistance $$R$$ is usually 50 Ω. This means that to double the pulse strength, one must *quadruple* the rf  power. High power levels can reach the limit of the amplifier, but can also cause *sample heating* -- sometimes up to several degrees!
+
+Putting all this together, the pulse attenuation (in dB) changes with voltage (i.e. pulse strength) as:
+
+$$dB = -20 \log_10 V_1 / V_2$$
+
+Thus, a increase of 20 dB in attenuation corresponds to a ten-fold reduction of the pulse strength (and a hundred-fold reduction in rf power and sample heating). Similarly, halving the pulse power corresponds to an increase of 6 dB in attenuation (and a four-fold reduction in rf power and sample heating).
 
 
 ## Delays
